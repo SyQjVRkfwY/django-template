@@ -1,0 +1,13 @@
+version: '3'
+services:
+    django:
+        build:
+            context: ./
+            dockerfile: ./Dockerfile
+        volumes:
+            - ./workspace:/workspace
+        ports:
+            - "8888:8888"
+        stdin_open: true
+        tty: true
+            
