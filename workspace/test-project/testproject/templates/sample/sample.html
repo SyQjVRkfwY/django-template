@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>サンプルページ</title>
+    </head>
+
+    <body>
+        <h2>取得したパラメータの表示</h2>
+            <div>コンテンツのID：{{ manual_id }}</div>
+            <div>お名前：{{ user_name }}</div>
+            <br>
+            <br>
+        <h2>・説明文テスト</h2>
+            <div>ここに文章の説明が入ります</div>
+            <br>
+            <br>
+        <h2>・画像コンテンツテスト</h2>
+            <div><img width="151" height="178" src="{% static 'ja/dog.jpg' %}" alt="柴犬"></div>
+            <br>
+            <br>
+        <h2>・音声コンテンツテスト</h2>
+            <div><audio controls src="{% static 'ja/dog_talk.mp3' %}"></audio></div>
+
+    </body>
+</html>
