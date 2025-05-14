@@ -16,11 +16,21 @@
             <br>
             <br>
         <h2>・画像コンテンツテスト</h2>
-            <div><img width="151" height="178" src="{% static 'ja/dog.jpg' %}" alt="柴犬"></div>
+            <div>
+                {% with 'ja/images/'|add:manual_id|add:'.jpg' as image_static %}
+                    <img width="auto" height="150" src="{% static image_static %}">
+                {% endwith %}
+            </div>
             <br>
             <br>
         <h2>・音声コンテンツテスト</h2>
-            <div><audio controls src="{% static 'ja/dog_talk.mp3' %}"></audio></div>
+            <div>
+                {% with 'ja/audios/'|add:manual_id|add:'.mp3' as audio_static %}
+                    <audio controls src="{% static audio_static %}" autoplay/>
+                {% endwith %}
+            </div>
+            <div>ページの設定で、音声の再生を許可してください。<br>
+                chromeの場合はアドレスバー左から「サイトの設定」→「音声」を「許可する」に変更でOKです。</div>
 
     </body>
 </html>
