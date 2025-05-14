@@ -6,22 +6,36 @@
 
 ## ビルド
 ~~~
-	docker-compose build
+docker-compose build
 ~~~
 imageがないサービスはDockerfileから取得するみたい
 
 ## コンテナ起動
 ~~~
-	docker-compose up -d
+docker-compose up -d
 ~~~
 
 ## ログイン
 ~~~
-	docker-compose exec <サービス名> bash
+# djangoはサービス名。 docker-compose.ymlファイル内に定義。
+docker-compose exec django bash
 ~~~
+
+## サーバ起動
+~~~
+cd test-project  # manage.pyのあるディレクトリに移動
+python manage.py runserver 0.0.0.0:8888
+~~~
+
+## 接続
+ホストPCから、http://localhost:8888/
 
 
 # 困ったときは
+## コンテナがビルド・起動しない
+Docker Daemonさんがいないと動かない。
+Doker-Desktopを起動
+
 ## コンテナがすぐにExitedになる
 起動後にプロセスがすべて終了するのが原因。下の設定を追加してあげる
 ~~~
