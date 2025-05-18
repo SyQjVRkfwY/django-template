@@ -38,6 +38,7 @@ https://qiita.com/okoppe8/items/e1c8d4b6ba24af788504
 ~~~
 2. メッセージ定義ファイルを生成
 以下のコマンドをアプリケーションのディレクトリ下で実行
+transタグで埋め込んだリソースのファイルを生成（更新）を行う
 ~~~
 django-admin makemessages -l ja --extension=html,py
 ~~~

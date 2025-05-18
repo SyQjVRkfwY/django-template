@@ -1,12 +1,21 @@
 .frame {
     padding: 0.5em 1em;
     margin: auto;
+    width: fit-content;
     border: double 5px #4ec4d3;
-    width: 75%;
     justify-content: center;
     text-align: center;
 }
 .frame p {
     margin: 0; 
     padding: 0;
+}
+
+.frame-text {
+    width: 75%;
+}
+
+.frame-menu {
+    margin: 1rem;
+    justify-content: left;
 }

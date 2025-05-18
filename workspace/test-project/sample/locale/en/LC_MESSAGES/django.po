@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-18 15:28+0000\n"
+"POT-Creation-Date: 2025-05-18 22:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,29 +18,50 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: sample/templates/sample/sample.html:12
+#: sample/templates/sample/sample.html:13
+#: sample/templates/sample/sample_description.html:13
 msgid "・説明文"
 msgstr "・Text Content"
 
-#: sample/templates/sample/sample.html:20
+#: sample/templates/sample/sample.html:21
+#: sample/templates/sample/sample_image.html:13
 msgid "・画像コンテンツ"
 msgstr "Image Content"
 
-#: sample/templates/sample/sample.html:28
+#: sample/templates/sample/sample.html:29
+#: sample/templates/sample/sample_audio.html:13
 msgid "・音声コンテンツテスト"
 msgstr "Audio Content"
 
-#: sample/templates/sample/sample.html:34
+#: sample/templates/sample/sample.html:43
+#: sample/templates/sample/sample_audio.html:27
 msgid "ページの設定で、音声の再生を許可してください。"
 msgstr "Please allow audio playback in the page settings."
 
-#: sample/templates/sample/sample.html:35
+#: sample/templates/sample/sample.html:44
+#: sample/templates/sample/sample_audio.html:28
 msgid ""
 "chromeの場合はアドレスバー左から「サイトの設定」→「音声」を「許可する」に変更"
 "でOKです。"
 msgstr ""
 "For Chrome, go to the left of the address bar, click Site Settings and "
 "change Audio to Allow."
+
+#: sample/templates/sample/sample.html:46
+msgid "テキスト表示"
+msgstr "Show text"
+
+#: sample/templates/sample/sample_audio.html:30
+msgid "複合表示"
+msgstr "Show multi content"
+
+#: sample/templates/sample/sample_description.html:20
+msgid "画像表示"
+msgstr "Show image"
+
+#: sample/templates/sample/sample_image.html:20
+msgid "音声表示"
+msgstr "Show audio"
 
 #~ msgid "locale_dir"
 #~ msgstr "en"

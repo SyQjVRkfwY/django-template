@@ -1,14 +1,32 @@
 {% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>サンプルページ</title>
+        <title>サンプル</title>
         <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
     </head>
 
-    <body>
-        <h2>・説明文テスト</h2>
-            <div>ここに文章の説明が入ります</div>
+    <body onload="playAudio()">
+        <div class="frame frame-menu"><a href="/ja{{ current }}">・日本語</a><a href="/en{{ current }}">・English</a></div>
+        <h2>{% trans '・音声コンテンツテスト' %}</h2>
+            <script>
+                function playAudio() {
+                    var audio = document.getElementById("test_audio");
+                    audio.play().catch(error => {
+                        console.log("自動再生がブロックされました:", error);
+                    });
+                }
+            </script>
+            <div class="frame">
+                {% with LANGUAGE_CODE|add:'/audios/'|add:manual_id|add:'.mp3' as audio_static %}
+                    <audio controls src="{% static audio_static %}" id="test_audio"/>
+                {% endwith %}
+            </div>
+            <div>{% trans 'ページの設定で、音声の再生を許可してください。' %}<br>
+                {% trans 'chromeの場合はアドレスバー左から「サイトの設定」→「音声」を「許可する」に変更でOKです。' %}</div>
 
+        <div class="frame frame-menu"><a href="{{next}}">{% trans '複合表示' %}</a></div>
     </body>
 </html>

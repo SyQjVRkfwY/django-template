@@ -1,13 +1,22 @@
 {% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>サンプルページ</title>
+        <title>サンプル</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
     </head>
 
-    <body>
-        <h2>・説明文テスト</h2>
-            <div>ここに文章の説明が入ります</div>
+    <body onload="playAudio()">
+        <div class="frame frame-menu"><a href="/ja{{ current }}">・日本語</a><a href="/en{{ current }}">・English</a></div>
+        <h2>{% trans '・説明文' %}</h2>
+            <div class="frame frame-text">
+                {% with LANGUAGE_CODE|add:'/texts/'|add:manual_id|add:'.txt' as txt_source %}
+                    <iframe src="{% static txt_source %}" width="100%" height="300px"></iframe>
+                {% endwith %}
+            </div>
 
+        <div class="frame frame-menu"><a href="{{next}}">{% trans '画像表示' %}</a></div>
     </body>
 </html>

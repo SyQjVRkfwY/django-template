@@ -9,8 +9,9 @@
     </head>
 
     <body onload="playAudio()">
+        <div class="frame frame-menu"><a href="/ja{{ current }}">・日本語</a><a href="/en{{ current }}">・English</a></div>
         <h2>{% trans '・説明文' %}</h2>
-            <div class="frame">
+            <div class="frame frame-text">
                 {% with LANGUAGE_CODE|add:'/texts/'|add:manual_id|add:'.txt' as txt_source %}
                     <iframe src="{% static txt_source %}" width="100%" height="300px"></iframe>
                 {% endwith %}
@@ -35,12 +36,13 @@
                 }
             </script>
             <div class="frame">
-                {% with 'ja/audios/'|add:manual_id|add:'.mp3' as audio_static %}
+                {% with LANGUAGE_CODE|add:'/audios/'|add:manual_id|add:'.mp3' as audio_static %}
                     <audio controls src="{% static audio_static %}" id="test_audio"/>
                 {% endwith %}
             </div>
             <div>{% trans 'ページの設定で、音声の再生を許可してください。' %}<br>
                 {% trans 'chromeの場合はアドレスバー左から「サイトの設定」→「音声」を「許可する」に変更でOKです。' %}</div>
 
+        <div class="frame frame-menu"><a href="{{next}}">{% trans 'テキスト表示' %}</a></div>
     </body>
 </html>
