@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>サンプルページ</title>
+    </head>
+
+    <body>
+        <h2>取得したパラメータの表示</h2>
+            <div>コンテンツのID：{{ manual_id }}</div>
+            <div>お名前：{{ user_name }}</div>
+            <br>
+            <br>
+        <h2>・説明文テスト</h2>
+            <div>ここに文章の説明が入ります</div>
+            <br>
+            <br>
+        <h2>・画像コンテンツテスト</h2>
+            <div>
+                {% with 'ja/images/'|add:manual_id|add:'.jpg' as image_static %}
+                    <img width="auto" height="150" src="{% static image_static %}">
+                {% endwith %}
+            </div>
+            <br>
+            <br>
+        <h2>・音声コンテンツテスト</h2>
+            <div>
+                {% with 'ja/audios/'|add:manual_id|add:'.mp3' as audio_static %}
+                    <audio controls src="{% static audio_static %}" autoplay/>
+                {% endwith %}
+            </div>
+            <div>ページの設定で、音声の再生を許可してください。<br>
+                chromeの場合はアドレスバー左から「サイトの設定」→「音声」を「許可する」に変更でOKです。</div>
+
+    </body>
+</html>
