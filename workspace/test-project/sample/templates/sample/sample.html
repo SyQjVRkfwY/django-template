@@ -1,0 +1,46 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>サンプル</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    </head>
+
+    <body onload="playAudio()">
+        <h2>{% trans '・説明文' %}</h2>
+            <div class="frame">
+                {% with LANGUAGE_CODE|add:'/texts/'|add:manual_id|add:'.txt' as txt_source %}
+                    <iframe src="{% static txt_source %}" width="100%" height="300px"></iframe>
+                {% endwith %}
+            </div>
+            <br>
+            <br>
+        <h2>{% trans '・画像コンテンツ' %}</h2>
+            <div class="frame">
+                {% with LANGUAGE_CODE|add:'/images/'|add:manual_id|add:'.jpg' as image_static %}
+                    <img width="auto" height="auto" src="{% static image_static %}" alt="Test Image">
+                {% endwith %}
+            </div>
+            <br>
+            <br>
+        <h2>{% trans '・音声コンテンツテスト' %}</h2>
+            <script>
+                function playAudio() {
+                    var audio = document.getElementById("test_audio");
+                    audio.play().catch(error => {
+                        console.log("自動再生がブロックされました:", error);
+                    });
+                }
+            </script>
+            <div class="frame">
+                {% with 'ja/audios/'|add:manual_id|add:'.mp3' as audio_static %}
+                    <audio controls src="{% static audio_static %}" id="test_audio"/>
+                {% endwith %}
+            </div>
+            <div>{% trans 'ページの設定で、音声の再生を許可してください。' %}<br>
+                {% trans 'chromeの場合はアドレスバー左から「サイトの設定」→「音声」を「許可する」に変更でOKです。' %}</div>
+
+    </body>
+</html>

@@ -30,6 +30,28 @@ python manage.py runserver 0.0.0.0:8888
 ## 接続
 ホストPCから、http://localhost:8888/
 
+## 言語対応
+https://qiita.com/okoppe8/items/e1c8d4b6ba24af788504
+1. 翻訳を埋め込む
+~~~
+{% trans '翻訳する言葉' %}
+~~~
+2. メッセージ定義ファイルを生成
+以下のコマンドをアプリケーションのディレクトリ下で実行
+~~~
+django-admin makemessages -l ja --extension=html,py
+~~~
+
+3. `locale/各言語のディレクトリ/django.po` を修正
+~~~
+msgid "翻訳する言葉"
+msgstr "translation word"
+~~~
+
+4. 以下のコマンド実行
+~~~
+python manage.py compilemessages -l ja
+~~~
 
 # 困ったときは
 ## コンテナがビルド・起動しない
