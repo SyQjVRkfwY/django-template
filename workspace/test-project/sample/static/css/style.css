@@ -1,3 +1,17 @@
+html {
+    font-size: 16px;
+}
+
+body {
+    font-size: clamp(1.1rem, 2vw, 1.8rem);
+}
+@media screen and (max-width:768px){
+    body {
+        font-size: 1rem;
+    }
+}
+
+
 .frame {
     padding: 0.5em 1em;
     margin: auto;
