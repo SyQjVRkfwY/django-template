@@ -54,6 +54,14 @@ msgstr "translation word"
 python manage.py compilemessages -l ja
 ~~~
 
+## GCPにデプロイ
+manage.pyのある場所で以下のコマンド。または.をパスにする
+~~~
+gcloud run deploy --source .
+~~~
+
+
+
 # 困ったときは
 ## コンテナがビルド・起動しない
 Docker Daemonさんがいないと動かない。
@@ -71,3 +79,14 @@ Doker-Desktopを起動
 * 起動時のIPとポート番号を確認
 `python manage.py runserver 0.0.0.0:8888` ← 0.0.0.0がないと繋がらない可能性あり
 * コンテナにnetcatを入れて疎通できるか確認（疎通できればDjango特有の問題）
+
+
+## GCPでデプロイした後にビルドに失敗する
+エントリポイントが見つからない。
+`manage.py`がエントリポイントにしたいので、`main.py`にするのが手っ取り早い。
+ちゃんとやるなら環境変数の設定とかが必要
+
+## GCPのログ確認
+ロギング > ログエクスプローラ
+https://cloud.google.com/python/django/run
+
